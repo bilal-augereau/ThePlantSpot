@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Home from "../../JS-Paris-P2-ThePlantSpot/src/pages/Home.tsx";
 import Search from "../../JS-Paris-P2-ThePlantSpot/src/pages/Search.tsx";
+import SearchBar from "./components/SearchBar.tsx";
+
+interface Plant {
+	name: string;
+	"Temperature max": { C?: number };
+	"Temperature min": { C?: number };
+}
 
 function App() {
-	const [plant, setPlant] = useState(null);
+	const [Plant, setPlant] = useState<Plant[]>([]);
 	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(null);
+	const [error, setError] = useState<string | null>(null);
+	const [filteredData, setFilteredData] = useState<Plant[]>([]);
 
 	useEffect(() => {
 		const url = "https://house-plants2.p.rapidapi.com/all";
@@ -31,6 +39,7 @@ function App() {
 			})
 			.then((data) => {
 				setPlant(data);
+				setFilteredData(data);
 				setLoading(false);
 			})
 			.catch((err) => {
@@ -39,10 +48,18 @@ function App() {
 			});
 	}, []);
 
+	const handleSearch = (searchTerm: string) => {
+		if (Plant) {
+			const results = Plant.filter((item) =>
+				item.name?.toLowerCase().includes(searchTerm.toLowerCase()),
+			);
+			setFilteredData(results);
+		}
+	};
+
 	if (loading) return <div>Chargement...</div>;
 	if (error) return <div>Erreur: {error}</div>;
 
-	console.log(plant);
 	return (
 		<Router>
 			<div>
@@ -52,22 +69,27 @@ function App() {
 						<li>
 							<Link to="/">Accueil</Link>
 						</li>
+						c
 						<li>
 							<Link to="/search">Search</Link>
 						</li>
 					</ul>
 				</nav>
+				<main>
+					<SearchBar onSearch={handleSearch} />
+				</main>
 
 				{/* Définir les Routes */}
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/search" element={<Search />} />
 				</Routes>
+
 				<div>
 					<h1>Liste des Plantes</h1>
 					<ul>
-						{plant.map((item, index) => (
-							<li key={index}>
+						{filteredData.map((item) => (
+							<li key={item.name}>
 								{item["Temperature max"]?.C && item["Temperature min"]?.C ? (
 									<span>
 										{item["Temperature max"].C - item["Temperature min"].C}°C
