@@ -1,4 +1,4 @@
-import "./PlantCard.css";
+import "./PlantList.css";
 import difficultiesImg from "../img/picto/difficulties.png";
 import difficultiesBWImg from "../img/picto/difficultiesBW.png";
 import dropImg from "../img/picto/drop.png";
@@ -59,6 +59,7 @@ const getGrowthDifficulty = (growthType: string): number => {
 		case "Slow":
 			return 3; // Difficile
 		case "Regular":
+		case "Seasonal":
 			return 2; // Moyenne
 		case "Fast":
 			return 1; // Facile
@@ -80,7 +81,7 @@ const getPruningDifficulty = (pruningType: string): number => {
 	}
 };
 
-const calculateAverageDifficulty = (plant: PlantCardProps["plant"]): number => {
+const calculateAverageDifficulty = (plant: PlantListProps["plant"]): number => {
 	const lightDifficulty = getLightDifficulty(plant["Light tolered"]);
 	const wateringDifficulty = getWateringDifficulty(plant.Watering);
 	const temperatureDifficulty = getTemperatureDifficulty(
@@ -127,16 +128,22 @@ const getLightImage = (lightType: string) => {
 };
 
 const getDropImage = (dropType: string) => {
-	switch (dropType) {
-		case "Water when soil is half dry & Can dry between watering":
-			return [dropImg, dropBWImg, dropBWImg];
-		case "Keep moist between watering & Must not dry between watering":
-			return [dropImg, dropImg, dropBWImg];
-		case "Change water regularly in the cup & Water when soil is half dry":
-			return [dropImg, dropImg, dropImg];
-		default:
-			return null;
+	if (
+		dropType.includes("half dry & Can dry") ||
+		dropType.includes("watering & Water only when dry")
+	) {
+		return [dropImg, dropBWImg, dropBWImg];
 	}
+	if (dropType.includes("Keep moist between")) {
+		return [dropImg, dropImg, dropBWImg];
+	}
+	if (
+		dropType.includes("in the cup & Water") ||
+		dropType.includes("half dry & Change water")
+	) {
+		return [dropImg, dropImg, dropImg];
+	}
+	return null;
 };
 
 const getGrowthImage = (growthType: string) => {
@@ -144,7 +151,6 @@ const getGrowthImage = (growthType: string) => {
 		case "Slow":
 			return [growthImg, growthBWImg, growthBWImg];
 		case "Regular":
-			return [growthImg, growthImg, growthBWImg];
 		case "Seasonal":
 			return [growthImg, growthImg, growthBWImg];
 		case "Fast":
@@ -181,9 +187,8 @@ const getTemperatureImage = (minTemp: number, maxTemp: number) => {
 	return null;
 };
 
-const PlantCard: React.FC<PlantCardProps> = ({ plant }) => {
+const PlantList: React.FC<PlantListProps> = ({ plant }) => {
 	const averageDifficulty = calculateAverageDifficulty(plant);
-
 	return (
 		<tr key={plant.id}>
 			<td>
@@ -196,20 +201,20 @@ const PlantCard: React.FC<PlantCardProps> = ({ plant }) => {
 			</td>
 
 			<td>
-				{getLightImage(plant["Light tolered"])?.map((image) => (
+				{getLightImage(plant["Light tolered"])?.map((image, index) => (
 					<img
-						key={`${plant.id}-light-${image}`}
+						key={`Light tolered ${plant.id}-${index}`}
 						src={image}
 						alt={plant["Light tolered"]}
 						width="35"
-						title={`${plant["Light tolered"]}`}
+						title={plant["Light tolered"]}
 					/>
 				))}
 			</td>
 			<td>
-				{getDropImage(plant.Watering)?.map((image) => (
+				{getDropImage(plant.Watering)?.map((image, index) => (
 					<img
-						key={`${plant.id}-drop-${image}`}
+						key={`Watering ${plant.id}-${index}`}
 						src={image}
 						alt={plant.Watering}
 						width="35"
@@ -221,9 +226,9 @@ const PlantCard: React.FC<PlantCardProps> = ({ plant }) => {
 				{getTemperatureImage(
 					plant["Temperature min"].C,
 					plant["Temperature max"].C,
-				)?.map((image) => (
+				)?.map((image, index) => (
 					<img
-						key={`${plant.id}-temp-${image}`}
+						key={`Temperature ${plant.id}-${index}`}
 						src={image}
 						alt="Temperature"
 						width="35"
@@ -232,9 +237,9 @@ const PlantCard: React.FC<PlantCardProps> = ({ plant }) => {
 				))}
 			</td>
 			<td>
-				{getGrowthImage(plant.Growth)?.map((image) => (
+				{getGrowthImage(plant.Growth)?.map((image, index) => (
 					<img
-						key={`${plant.id}-growth-${image}`}
+						key={`Growth ${plant.id}-${index}`}
 						src={image}
 						alt={plant.Growth}
 						width="35"
@@ -243,9 +248,9 @@ const PlantCard: React.FC<PlantCardProps> = ({ plant }) => {
 				))}
 			</td>
 			<td>
-				{getPruningImage(plant.Pruning)?.map((image) => (
+				{getPruningImage(plant.Pruning)?.map((image, index) => (
 					<img
-						key={`${plant.id}-pruning-${image}`}
+						key={`Pruning ${plant.id}-${index}`}
 						src={image}
 						alt={plant.Pruning}
 						width="35"
@@ -255,9 +260,9 @@ const PlantCard: React.FC<PlantCardProps> = ({ plant }) => {
 			</td>
 
 			<td>
-				{getDifficultyImage(averageDifficulty)?.map((image) => (
+				{getDifficultyImage(averageDifficulty)?.map((image, index) => (
 					<img
-						key={`${plant.id}-difficulty-${image}`}
+						key={`Difficulty ${plant.id}-${index}`}
 						src={image}
 						alt="Difficulty"
 						width="35"
@@ -268,4 +273,4 @@ const PlantCard: React.FC<PlantCardProps> = ({ plant }) => {
 	);
 };
 
-export default PlantCard;
+export default PlantList;

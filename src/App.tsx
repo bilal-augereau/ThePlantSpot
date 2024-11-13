@@ -3,7 +3,7 @@ import "./App.css";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Home from "../../JS-Paris-P2-ThePlantSpot/src/pages/Home.tsx";
 import Search from "../../JS-Paris-P2-ThePlantSpot/src/pages/Search.tsx";
-import PlantCard from "./components/PlantCard";
+import PlantList from "./components/PlantList.tsx";
 
 function App() {
 	const [plants, setPlants] = useState([]);
@@ -110,7 +110,7 @@ function App() {
 							</thead>
 							<tbody>
 								{plants.map((plant) => (
-									<PlantCard key={plant.id} plant={plant} />
+									<PlantList key={plant.id} plant={plant} />
 								))}
 							</tbody>
 						</table>
