@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Home from "../../JS-Paris-P2-ThePlantSpot/src/pages/Home.tsx";
 import Search from "../../JS-Paris-P2-ThePlantSpot/src/pages/Search.tsx";
+import PlantCard from "./components/PlantCard";
 
 function App() {
-	const [plant, setPlant] = useState(null);
+	const [plants, setPlants] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
@@ -30,7 +31,36 @@ function App() {
 				return response.json();
 			})
 			.then((data) => {
-				setPlant(data);
+				type Plant = {
+					id: number;
+					Family: string;
+					"Light tolered": string;
+					Watering: string;
+					"Temperature max": number;
+					"Temperature min": number;
+					Growth: string;
+					Pruning: string;
+					Difficulties: string;
+					C: number;
+					Img: string;
+					"Common name": string;
+				};
+
+				const formattedData = data.map((plant: Plant) => ({
+					id: plant.id,
+					Family: plant.Family || "",
+					"Light tolered": plant["Light tolered"] || "",
+					Watering: plant.Watering || "",
+					"Temperature max": plant["Temperature max"] || 0,
+					"Temperature min": plant["Temperature min"] || 0,
+					Growth: plant.Growth || "",
+					Pruning: plant.Pruning || "",
+					Difficulties: plant.Difficulties || "",
+					C: plant.C || 0,
+					Img: plant.Img || "",
+					"Common name": plant["Common name"] || "",
+				}));
+				setPlants(formattedData);
 				setLoading(false);
 			})
 			.catch((err) => {
@@ -42,7 +72,6 @@ function App() {
 	if (loading) return <div>Chargement...</div>;
 	if (error) return <div>Erreur: {error}</div>;
 
-	console.log(plant);
 	return (
 		<Router>
 			<div>
@@ -57,33 +86,35 @@ function App() {
 						</li>
 					</ul>
 				</nav>
-
-				{/* Définir les Routes */}
+				{/* Routes */}
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/search" element={<Search />} />
 				</Routes>
+				{/* Liste des plantes */}
 				<div>
 					<h1>Liste des Plantes</h1>
-					<ul>
-						{plant.map((item, index) => (
-							<li key={index}>
-								{item["Temperature max"]?.C && item["Temperature min"]?.C ? (
-									<span>
-										{item["Temperature max"].C - item["Temperature min"].C}°C
-									</span>
-								) : item["Temperature max"]?.C &&
-									!item["Temperature min"]?.C ? (
-									<span>
-										{item["Temperature max"].C}°C (Min temperature data not
-										available)
-									</span>
-								) : (
-									<span>Temperature data not available</span>
-								)}
-							</li>
-						))}
-					</ul>
+					<div className="plant-card">
+						<table>
+							<thead>
+								<tr>
+									<th>IMG</th>
+									<th>Common Name / Family / Latin Name</th>
+									<th>Light tolered</th>
+									<th>Watering</th>
+									<th>Temperature</th>
+									<th>Growth</th>
+									<th>Pruning</th>
+									<th>Difficulties</th>
+								</tr>
+							</thead>
+							<tbody>
+								{plants.map((plant) => (
+									<PlantCard key={plant.id} plant={plant} />
+								))}
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</Router>
