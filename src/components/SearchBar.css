@@ -1,40 +1,38 @@
 /* SearchBar.css */
+
 .search-bar-container {
 	display: flex;
-	justify-content: center; /* Centrer la barre de recherche */
-	margin: 20px 0; /* Ajouter un peu d'espace autour de la barre */
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	margin: 20px 0;
 }
 
-.search-bar-input {
-	padding: 10px;
+.search-bar {
+	width: 100%;
+	max-width: 400px;
+	padding: 12px 40px 12px 16px; /* Espace pour l'icône à gauche */
 	font-size: 16px;
-	border: 2px solid #ccc; /* Bordure grise */
-	border-radius: 5px; /* Coins arrondis */
-	width: 300px; /* Largeur fixe */
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
-	transition: border-color 0.3s ease-in-out; /* Transition pour l'animation */
+	color: #2c3e50;
+	border: 2px solid #a0d468; /* Vert pastel pour un effet naturel */
+	border-radius: 25px;
+	background-color: #f9f9f9;
+	transition: border-color 0.3s ease;
 }
 
-.search-bar-input:focus {
-	border-color: #4caf50; /* Changer la couleur de la bordure au focus */
-	outline: none; /* Supprimer le contour bleu */
+.search-bar:focus {
+	outline: none;
+	border-color: #8cc152; /* Accentue la couleur au focus */
 }
 
-.search-bar-input::placeholder {
-	color: #888; /* Couleur du texte du placeholder */
+.search-bar::placeholder {
+	color: #95a5a6; /* Couleur plus douce pour le placeholder */
 }
 
-.search-bar-button {
-	padding: 10px 20px;
-	margin-left: 10px; /* Espacer le bouton de la barre de recherche */
-	background-color: #4caf50;
-	color: white;
-	border: none;
-	border-radius: 5px;
+.search-icon {
+	position: absolute;
+	right: 450px;
+	font-size: 20px;
+	color: #8cc152; /* Icône de couleur verte */
 	cursor: pointer;
-	transition: background-color 0.3s ease;
-}
-
-.search-bar-button:hover {
-	background-color: #5b2e06;
 }

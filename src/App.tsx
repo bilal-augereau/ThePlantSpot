@@ -1,25 +1,24 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Home from "../../JS-Paris-P2-ThePlantSpot/src/pages/Home.tsx";
-import Search from "../../JS-Paris-P2-ThePlantSpot/src/pages/Search.tsx";
-import SearchBar from "./components/SearchBar.tsx";
+import Home from "../../JS-Paris-P2-ThePlantSpot/src/pages/Home";
+import Search from "../../JS-Paris-P2-ThePlantSpot/src/pages/Search";
 
 interface Plant {
+	id: number;
 	name: string;
-	"Temperature max": { C?: number };
-	"Temperature min": { C?: number };
+	"Temperature max"?: { C?: number };
+	"Temperature min"?: { C?: number };
 }
 
 function App() {
-	const [Plant, setPlant] = useState<Plant[]>([]);
+	const [plants, setPlants] = useState<Plant[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
-	const [filteredData, setFilteredData] = useState<Plant[]>([]);
 
+	// Récupération des données
 	useEffect(() => {
 		const url = "https://house-plants2.p.rapidapi.com/all";
-
 		const options = {
 			method: "GET",
 			headers: {
@@ -31,31 +30,16 @@ function App() {
 		fetch(url, options)
 			.then((response) => {
 				if (!response.ok) {
-					throw new Error(
-						"Une erreur s'est produite lors de la récupération des données",
-					);
+					throw new Error("Erreur lors de la récupération des données");
 				}
 				return response.json();
 			})
 			.then((data) => {
-				setPlant(data);
-				setFilteredData(data);
-				setLoading(false);
+				setPlants(data);
 			})
-			.catch((err) => {
-				setError(err.message);
-				setLoading(false);
-			});
+			.catch((err) => setError(err.message))
+			.finally(() => setLoading(false));
 	}, []);
-
-	const handleSearch = (searchTerm: string) => {
-		if (Plant) {
-			const results = Plant.filter((item) =>
-				item.name?.toLowerCase().includes(searchTerm.toLowerCase()),
-			);
-			setFilteredData(results);
-		}
-	};
 
 	if (loading) return <div>Chargement...</div>;
 	if (error) return <div>Erreur: {error}</div>;
@@ -69,44 +53,17 @@ function App() {
 						<li>
 							<Link to="/">Accueil</Link>
 						</li>
-						c
 						<li>
-							<Link to="/search">Search</Link>
+							<Link to="/search">Recherche</Link>
 						</li>
 					</ul>
 				</nav>
-				<main>
-					<SearchBar onSearch={handleSearch} />
-				</main>
 
-				{/* Définir les Routes */}
+				{/* Définition des routes */}
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/search" element={<Search />} />
+					<Route path="/search" element={<Search plants={plants} />} />
 				</Routes>
-
-				<div>
-					<h1>Liste des Plantes</h1>
-					<ul>
-						{filteredData.map((item) => (
-							<li key={item.name}>
-								{item["Temperature max"]?.C && item["Temperature min"]?.C ? (
-									<span>
-										{item["Temperature max"].C - item["Temperature min"].C}°C
-									</span>
-								) : item["Temperature max"]?.C &&
-									!item["Temperature min"]?.C ? (
-									<span>
-										{item["Temperature max"].C}°C (Min temperature data not
-										available)
-									</span>
-								) : (
-									<span>Temperature data not available</span>
-								)}
-							</li>
-						))}
-					</ul>
-				</div>
 			</div>
 		</Router>
 	);
