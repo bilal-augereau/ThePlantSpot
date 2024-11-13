@@ -44,6 +44,7 @@ function App() {
 					C: number;
 					Img: string;
 					"Common name": string;
+					"Latin name": string;
 				};
 
 				const formattedData = data.map((plant: Plant) => ({
@@ -59,6 +60,7 @@ function App() {
 					C: plant.C || 0,
 					Img: plant.Img || "",
 					"Common name": plant["Common name"] || "",
+					"Latin name": plant["Latin name"] || "",
 				}));
 				setPlants(formattedData);
 				setLoading(false);

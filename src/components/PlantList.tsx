@@ -81,7 +81,23 @@ const getPruningDifficulty = (pruningType: string): number => {
 	}
 };
 
-const calculateAverageDifficulty = (plant: PlantListProps["plant"]): number => {
+interface Plant {
+	plant: {
+		id: string;
+		Img: string;
+		Family: string;
+		"Common name": string;
+		"Latin name": string;
+		"Light tolered": string;
+		Watering: string;
+		Growth: string;
+		Pruning: string;
+		"Temperature min": { C: number };
+		"Temperature max": { C: number };
+	};
+}
+
+const calculateAverageDifficulty = (plant: Plant["plant"]): number => {
 	const lightDifficulty = getLightDifficulty(plant["Light tolered"]);
 	const wateringDifficulty = getWateringDifficulty(plant.Watering);
 	const temperatureDifficulty = getTemperatureDifficulty(
@@ -187,7 +203,7 @@ const getTemperatureImage = (minTemp: number, maxTemp: number) => {
 	return null;
 };
 
-const PlantList: React.FC<PlantListProps> = ({ plant }) => {
+const PlantList: React.FC<Plant> = ({ plant }) => {
 	const averageDifficulty = calculateAverageDifficulty(plant);
 	return (
 		<tr key={plant.id}>
