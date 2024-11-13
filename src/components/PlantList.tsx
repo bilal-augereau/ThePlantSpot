@@ -203,7 +203,7 @@ const getTemperatureImage = (minTemp: number, maxTemp: number) => {
 	return null;
 };
 
-const PlantList: React.FC<Plant> = ({ plant }) => {
+const PlantList = ({ plant }) => {
 	const averageDifficulty = calculateAverageDifficulty(plant);
 	return (
 		<tr key={plant.id}>
