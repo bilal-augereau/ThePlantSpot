@@ -208,12 +208,17 @@ const PlantList: React.FC<Plant> = ({ plant }) => {
 	return (
 		<tr key={plant.id}>
 			<td>
-				<img src={plant.Img} alt={plant.Family} width="50" />
+				<img
+					className="imgplant"
+					src={plant.Img}
+					alt={plant.Family}
+					width="100"
+				/>
 			</td>
 			<td>
-				<p>{plant["Common name"]}</p>
-				<p>{plant.Family}</p>
-				<p>{plant["Latin name"]}</p>
+				<p className="commonname">{plant["Common name"]}</p>
+				<p className="plantfamily">{plant.Family}</p>
+				<p className="latinname">{plant["Latin name"]}</p>
 			</td>
 
 			<td>
