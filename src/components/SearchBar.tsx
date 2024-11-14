@@ -21,7 +21,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
 			<input
 				type="text"
 				className="search-bar"
-				placeholder="Rechercher une plante d'intérieur..."
+				placeholder="Search a plant..."
 				value={searchTerm}
 				onChange={handleChange}
 			/>
