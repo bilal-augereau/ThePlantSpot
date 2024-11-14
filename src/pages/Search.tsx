@@ -12,9 +12,7 @@ const Search = () => {
 
 	const handleSearch = (searchTerm: string) => {
 		const filtered = plants.filter((plant) =>
-			(plant["Common name"] as string)
-				?.toLowerCase()
-				.includes(searchTerm.toLowerCase()),
+			plant["Common name"][0]?.toLowerCase().includes(searchTerm.toLowerCase()),
 		);
 		setFilteredPlants(filtered);
 	};
@@ -72,6 +70,7 @@ const Search = () => {
 					"Latin name": plant["Latin name"] || "",
 				}));
 				setPlants(formattedData);
+				setFilteredPlants(formattedData);
 				setLoading(false);
 			})
 			.catch((err) => {
@@ -105,7 +104,7 @@ const Search = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{plants.map((plant) => (
+							{filteredPlants.map((plant) => (
 								<PlantList key={plant.id} plant={plant} />
 							))}
 						</tbody>
