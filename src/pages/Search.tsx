@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
 import "../components/PlantList.css";
 import PlantList from "../components/PlantList.tsx";
+import SearchBar from "../components/SearchBar.tsx";
+import "../components/SearchBar.css";
 
 const Search = () => {
 	const [plants, setPlants] = useState([]);
+	const [filteredPlants, setFilteredPlants] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+
+	const handleSearch = (searchTerm: string) => {
+		const filtered = plants.filter((plant) =>
+			plant["Common name"][0]?.toLowerCase().includes(searchTerm.toLowerCase()),
+		);
+		setFilteredPlants(filtered);
+	};
 
 	useEffect(() => {
 		const url = "https://house-plants2.p.rapidapi.com/all";
@@ -60,6 +70,7 @@ const Search = () => {
 					"Latin name": plant["Latin name"] || "",
 				}));
 				setPlants(formattedData);
+				setFilteredPlants(formattedData);
 				setLoading(false);
 			})
 			.catch((err) => {
@@ -74,6 +85,8 @@ const Search = () => {
 	return (
 		<>
 			<h1>Page de recherche</h1>
+			<SearchBar onSearch={handleSearch} />
+
 			<div>
 				<h1>Liste des Plantes</h1>
 				<div className="plant-card">
@@ -91,7 +104,7 @@ const Search = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{plants.map((plant) => (
+							{filteredPlants.map((plant) => (
 								<PlantList key={plant.id} plant={plant} />
 							))}
 						</tbody>

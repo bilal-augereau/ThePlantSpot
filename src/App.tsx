@@ -14,7 +14,7 @@ function App() {
 							<Link to="/">Accueil</Link>
 						</li>
 						<li>
-							<Link to="/search">Search</Link>
+							<Link to="/search">Recherche</Link>
 						</li>
 					</ul>
 				</nav>
