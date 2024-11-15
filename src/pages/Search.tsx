@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../components/PlantList.css";
-import PlantList from "../components/PlantList.tsx";
 import Filterssliders from "../components/Filterssliders.tsx";
+import PlantList from "../components/PlantList.tsx";
 
 export type Plant = {
 	id: number;

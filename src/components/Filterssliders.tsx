@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import PlantList, {
 	getLightDifficulty,
 	getWateringDifficulty,
@@ -178,17 +178,7 @@ const Filterssliders = ({
 	useEffect(() => {
 		const filtered = filterPlants();
 		setFilteredPlants(filtered);
-	}, [
-		plants,
-		interactedToleredlight,
-		interactedWatering,
-		interactedTemperaturerange,
-		interactedGrowth,
-		interactedPruning,
-		interactedDifficulty,
-		filterPlants,
-		setFilteredPlants,
-	]);
+	}, [filterPlants, setFilteredPlants]);
 
 	const getSliderClass = (interacted: boolean) => {
 		return interacted ? "slider active" : "slider inactive";
