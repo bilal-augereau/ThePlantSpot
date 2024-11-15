@@ -1,14 +1,31 @@
 import { useEffect, useState } from "react";
 import "../components/PlantList.css";
+import Filterssliders from "../components/Filterssliders.tsx";
 import PlantList from "../components/PlantList.tsx";
 import SearchBar from "../components/SearchBar.tsx";
 import "../components/SearchBar.css";
 
+export type Plant = {
+	id: number;
+	Family: string;
+	"Light tolered": string;
+	Watering: string;
+	"Temperature max": number;
+	"Temperature min": number;
+	Growth: string;
+	Pruning: string;
+	Difficulties: string;
+	C: number;
+	Img: string;
+	"Common name": string;
+	"Latin name": string;
+};
+
 const Search = () => {
-	const [plants, setPlants] = useState([]);
-	const [filteredPlants, setFilteredPlants] = useState([]);
+	const [plants, setPlants] = useState<Plant[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const [filteredPlants, setFilteredPlants] = useState<Plant[]>([]);
 
 	const handleSearch = (searchTerm: string) => {
 		const filtered = plants.filter((plant) =>
@@ -38,22 +55,6 @@ const Search = () => {
 				return response.json();
 			})
 			.then((data) => {
-				type Plant = {
-					id: number;
-					Family: string;
-					"Light tolered": string;
-					Watering: string;
-					"Temperature max": number;
-					"Temperature min": number;
-					Growth: string;
-					Pruning: string;
-					Difficulties: string;
-					C: number;
-					Img: string;
-					"Common name": string;
-					"Latin name": string;
-				};
-
 				const formattedData = data.map((plant: Plant) => ({
 					id: plant.id,
 					Family: plant.Family || "",
@@ -86,7 +87,9 @@ const Search = () => {
 		<>
 			<h1>Page de recherche</h1>
 			<SearchBar onSearch={handleSearch} />
-
+			<div>
+				<Filterssliders plants={plants} setFilteredPlants={setFilteredPlants} />
+			</div>
 			<div>
 				<h1>Liste des Plantes</h1>
 				<div className="plant-card">
@@ -100,7 +103,7 @@ const Search = () => {
 								<th>Temperature</th>
 								<th>Growth</th>
 								<th>Pruning</th>
-								<th>Difficulties</th>
+								<th>Global Difficulty</th>
 							</tr>
 						</thead>
 						<tbody>

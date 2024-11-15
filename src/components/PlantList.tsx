@@ -11,6 +11,7 @@ import sunImg from "../img/picto/sun.png";
 import sunBWImg from "../img/picto/sunBW.png";
 import thermometerImg from "../img/picto/thermometer.png";
 import thermometerBWImg from "../img/picto/thermometerBW.png";
+import type { Plant } from "../pages/Search.tsx";
 
 const getLightDifficulty = (lightType: string): number => {
 	switch (lightType) {
@@ -28,11 +29,15 @@ const getLightDifficulty = (lightType: string): number => {
 const getWateringDifficulty = (wateringType: string): number => {
 	switch (wateringType) {
 		case "Keep moist between watering & Must not dry between watering":
-			return 3; // Difficile
-		case "Water when soil is half dry & Can dry between watering":
 			return 2; // Moyenne
-		case "Change water regularly in the cup & Water when soil is half dry":
+		case "Water when soil is half dry & Can dry between watering":
 			return 1; // Facile
+		case "Change water regularly in the cup & Water when soil is half dry":
+			return 3; // Difficile
+		case "Must dry between watering & Water only when dry":
+			return 1; // Facile
+		case "Water when soil is half dry & Change water regularly in the cup":
+			return 3; // Difficile
 		default:
 			return 0;
 	}
@@ -81,23 +86,7 @@ const getPruningDifficulty = (pruningType: string): number => {
 	}
 };
 
-interface Plant {
-	plant: {
-		id: string;
-		Img: string;
-		Family: string;
-		"Common name": string;
-		"Latin name": string;
-		"Light tolered": string;
-		Watering: string;
-		Growth: string;
-		Pruning: string;
-		"Temperature min": { C: number };
-		"Temperature max": { C: number };
-	};
-}
-
-const calculateAverageDifficulty = (plant: Plant["plant"]): number => {
+const calculateAverageDifficulty = (plant: Plant): number => {
 	const lightDifficulty = getLightDifficulty(plant["Light tolered"]);
 	const wateringDifficulty = getWateringDifficulty(plant.Watering);
 	const temperatureDifficulty = getTemperatureDifficulty(
@@ -293,5 +282,12 @@ const PlantList = ({ plant }) => {
 		</tr>
 	);
 };
-
+export {
+	getLightDifficulty,
+	getWateringDifficulty,
+	getTemperatureDifficulty,
+	getGrowthDifficulty,
+	getPruningDifficulty,
+	calculateAverageDifficulty,
+};
 export default PlantList;
