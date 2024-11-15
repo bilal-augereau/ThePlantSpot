@@ -1,3 +1,4 @@
+import "./PlantList.css";
 import difficultiesImg from "../img/picto/difficulties.png";
 import difficultiesBWImg from "../img/picto/difficultiesBW.png";
 import dropImg from "../img/picto/drop.png";
