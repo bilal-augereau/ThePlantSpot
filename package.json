@@ -11,11 +11,16 @@
 		"prepare": "husky || true"
 	},
 	"dependencies": {
+		"@fortawesome/fontawesome-free": "^6.6.0",
 		"beercontest": "file:",
 		"dotenv": "^16.4.5",
 		"gg": "file:",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
+<<<<<<< HEAD
+=======
+		"react-icons": "^5.3.0",
+>>>>>>> d177298129cd1e74a903b96765a47b5865b5ca06
 		"react-router-dom": "^6.28.0"
 	},
 	"devDependencies": {
