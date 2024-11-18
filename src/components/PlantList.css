@@ -1,8 +1,5 @@
 th {
 	background-color: #94ab6f;
-	color: black;
-	padding: 10px;
-	text-align: left;
 }
 
 tr:nth-child(even) {
@@ -28,25 +25,25 @@ th {
 
 .commonname {
 	font-weight: bold;
-	font-size: 32px;
+	font-size: 20px;
 	margin: 0;
 }
 
 .plantfamily {
 	font-style: italic;
-	font-size: 30px;
+	font-size: 10px;
 	margin: 0;
 }
 
 .latinname {
-	font-size: 30px;
+	font-size: 10px;
 	font-style: italic;
 	font-weight: lighter;
 	margin: 0;
 }
 
 .imgplant {
-	width: 100%;
+	width: 70px;
 	height: auto;
 	padding: 0;
 	margin: 0;

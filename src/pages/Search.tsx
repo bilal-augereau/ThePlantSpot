@@ -91,7 +91,6 @@ const Search = () => {
 				<Filterssliders plants={plants} setFilteredPlants={setFilteredPlants} />
 			</div>
 			<div>
-				<h1>Liste des Plantes</h1>
 				<div className="plant-card">
 					<table>
 						<thead>
