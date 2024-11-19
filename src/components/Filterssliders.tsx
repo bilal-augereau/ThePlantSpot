@@ -8,7 +8,6 @@ import PlantList, {
 	calculateAverageDifficulty,
 } from "./PlantList.tsx";
 import "./Filterssliders.css";
-import SearchBar from "./SearchBar.tsx";
 import type { Plant } from "../pages/Search.tsx";
 
 const Filterssliders = ({

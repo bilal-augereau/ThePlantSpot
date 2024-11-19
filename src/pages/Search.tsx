@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "../components/PlantList.css";
 import CircularProgress from "@mui/material/CircularProgress";
+import Stack from "@mui/material/Stack";
 import Filterssliders from "../components/Filterssliders.tsx";
 import PlantList from "../components/PlantList.tsx";
 import SearchBar from "../components/SearchBar.tsx";
-import Stack from "@mui/material/Stack";
 import "../components/SearchBar.css";
 import "./Search.css";
 
