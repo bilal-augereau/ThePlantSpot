@@ -1,4 +1,3 @@
-import React from "react";
 import "./Footer.css";
 import logoFace from "../img/picto/Face.png";
 import logoInsta from "../img/picto/Insta.png";
