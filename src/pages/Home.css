@@ -1,0 +1,36 @@
+html {
+	background-color: #94ab6f;
+}
+
+.upper-body {
+	display: flex;
+	justify-content: space-around;
+	padding: 2rem;
+	align-items: center;
+}
+
+.Textes {
+	display: flex;
+	justify-content: left;
+}
+
+.green-path {
+	margin-left: 2rem;
+	font-size: 1.5rem;
+}
+
+.find-spot {
+	font-size: 5rem;
+	width: 8ch;
+}
+
+.woman-ia {
+	width: 400px;
+	height: 400px;
+}
+
+.lower-body {
+	display: flex;
+	padding: 2rem;
+	margin-top: 4rem;
+}
