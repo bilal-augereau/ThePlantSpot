@@ -109,6 +109,7 @@ blockquote,
 q {
 	quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -120,9 +121,4 @@ q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
-
-body {
-	line-height: 1;
-	font-family: sans-serif;
 }

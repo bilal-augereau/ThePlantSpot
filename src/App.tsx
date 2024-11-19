@@ -1,6 +1,7 @@
 import "./App.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 
@@ -17,6 +18,7 @@ function App() {
 					<Route path="/search" element={<Search />} />
 				</Routes>
 			</div>
+			<Footer />
 		</Router>
 	);
 }
