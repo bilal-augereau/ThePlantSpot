@@ -1,29 +1,24 @@
 import "./App.css";
-import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Home from "../../JS-Paris-P2-ThePlantSpot/src/pages/Home.tsx";
-import Search from "../../JS-Paris-P2-ThePlantSpot/src/pages/Search.tsx";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Search from "./pages/Search";
 
 function App() {
 	return (
 		<Router>
+			<Header />
 			<div>
 				{/* Navigation */}
-				<nav>
-					<ul>
-						<li>
-							<Link to="/">Accueil</Link>
-						</li>
-						<li>
-							<Link to="/search">Recherche</Link>
-						</li>
-					</ul>
-				</nav>
+
 				{/* Routes */}
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/search" element={<Search />} />
 				</Routes>
 			</div>
+			<Footer />
 		</Router>
 	);
 }

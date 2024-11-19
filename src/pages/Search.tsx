@@ -103,8 +103,7 @@ const Search = () => {
 	if (error) return <div>Erreur: {error}</div>;
 
 	return (
-		<>
-			<h1>Page de recherche</h1>
+		<div className="search">
 			<SearchBar onSearch={handleSearch} />
 			<div>
 				<Filterssliders
@@ -135,7 +134,7 @@ const Search = () => {
 					</table>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
