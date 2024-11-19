@@ -1,0 +1,55 @@
+nav {
+	background-color: #94ab6f;
+	color: #ffffff;
+	padding: 8px 5rem;
+	display: flex;
+	flex-direction: row;
+	height: 90px;
+	position: sticky;
+	top: 0%;
+	align-items: center;
+	transition: all 1s ease;
+	gap: 2rem;
+}
+
+.column-logo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Logo {
+	width: 4rem;
+	height: 4rem;
+}
+
+.ho-ligne {
+	width: 150px;
+	height: 1px;
+	background-color: #ffffff;
+	margin-top: 8px;
+}
+
+h1 {
+	font-weight: lighter;
+	font-Size: 3rem;
+}
+
+hr {
+	height: 80px;
+	margin-top: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+.liste-lien {
+	display: flex;
+	list-style-type: none;
+	text-align: left;
+	font-size: 1rem;
+	gap: 1rem;
+}
+
+a {
+	text-decoration: none;
+	color: #ffffff;
+}
