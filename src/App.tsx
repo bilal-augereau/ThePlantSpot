@@ -1,28 +1,35 @@
 import "./App.css";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Home from "../../JS-Paris-P2-ThePlantSpot/src/pages/Home.tsx";
-import Search from "../../JS-Paris-P2-ThePlantSpot/src/pages/Search.tsx";
+import Footer from "./components/Footer";
+import PlantList from "./components/PlantList";
+import Home from "./pages/Home";
+import Search from "./pages/Search";
 
 function App() {
 	return (
 		<Router>
-			<div>
-				{/* Navigation */}
+			<div className="app-container">
 				<nav>
-					<ul>
+					<ul className="nav">
 						<li>
 							<Link to="/">Accueil</Link>
 						</li>
 						<li>
 							<Link to="/search">Recherche</Link>
 						</li>
+						<li>
+							<Link to="/plants">Plantes</Link>
+						</li>
 					</ul>
 				</nav>
-				{/* Routes */}
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/search" element={<Search />} />
-				</Routes>
+				<div className="main-content">
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/search" element={<Search />} />
+						<Route path="/plants" element={<PlantList />} />
+					</Routes>
+				</div>
+				<Footer />
 			</div>
 		</Router>
 	);
