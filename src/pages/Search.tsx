@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import "../components/PlantList.css";
+import CircularProgress from "@mui/material/CircularProgress";
 import Filterssliders from "../components/Filterssliders.tsx";
 import PlantList from "../components/PlantList.tsx";
 import SearchBar from "../components/SearchBar.tsx";
+import Stack from "@mui/material/Stack";
 import "../components/SearchBar.css";
+import "./Search.css";
 
 export type Plant = {
 	id: number;
+	index: number;
 	Family: string;
 	"Light tolered": string;
 	Watering: string;
@@ -26,6 +30,7 @@ const Search = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const [filteredPlants, setFilteredPlants] = useState<Plant[]>([]);
+	const [displayedPlants, setDisplayedPlants] = useState<Plant[]>([]);
 
 	const handleSearch = (searchTerm: string) => {
 		const filtered = plants.filter((plant) =>
@@ -80,7 +85,21 @@ const Search = () => {
 			});
 	}, []);
 
-	if (loading) return <div>Chargement...</div>;
+	if (loading)
+		return (
+			<Stack
+				sx={{
+					color: "grey.500",
+					height: "100vh",
+					justifyContent: "center",
+					alignItems: "center",
+				}}
+				spacing={2}
+				direction="row"
+			>
+				<CircularProgress color="success" />
+			</Stack>
+		);
 	if (error) return <div>Erreur: {error}</div>;
 
 	return (
@@ -88,14 +107,17 @@ const Search = () => {
 			<h1>Page de recherche</h1>
 			<SearchBar onSearch={handleSearch} />
 			<div>
-				<Filterssliders plants={plants} setFilteredPlants={setFilteredPlants} />
+				<Filterssliders
+					plants={filteredPlants}
+					setDisplayedPlants={setDisplayedPlants}
+				/>
 			</div>
 			<div>
 				<div className="plant-card">
 					<table>
 						<thead>
-							<tr>
-								<th>IMG</th>
+							<tr className="plant-htitles-desktop">
+								<th>Plants</th>
 								<th>Common Name / Family / Latin Name</th>
 								<th>Light tolered</th>
 								<th>Watering</th>
@@ -106,8 +128,8 @@ const Search = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{filteredPlants.map((plant) => (
-								<PlantList key={plant.id} plant={plant} />
+							{displayedPlants.map((plant, index) => (
+								<PlantList key={plant.id} plant={plant} index={index} />
 							))}
 						</tbody>
 					</table>

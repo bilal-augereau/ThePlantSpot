@@ -8,12 +8,13 @@ import PlantList, {
 	calculateAverageDifficulty,
 } from "./PlantList.tsx";
 import "./Filterssliders.css";
+import SearchBar from "./SearchBar.tsx";
 import type { Plant } from "../pages/Search.tsx";
 
 const Filterssliders = ({
 	plants,
-	setFilteredPlants,
-}: { plants: Plant[]; setFilteredPlants: (plants: Plant[]) => void }) => {
+	setDisplayedPlants,
+}: { plants: Plant[]; setDisplayedPlants: (plants: Plant[]) => void }) => {
 	const [valueToleredlight, setValueToleredlight] = useState<number>(0);
 	const [valueWatering, setValueWatering] = useState<number>(0);
 	const [valueTemperaturerange, setValueTemperaturerange] = useState<number>(0);
@@ -84,35 +85,40 @@ const Filterssliders = ({
 	const handleWateringChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setValueWatering(Number.parseInt(event.target.value));
 		setInteractedWatering(true);
+		setInteractedWatering(event.target.value !== "0");
 	};
 	const handleTemperaturerangeChange = (
 		event: React.ChangeEvent<HTMLInputElement>,
 	) => {
 		setValueTemperaturerange(Number.parseInt(event.target.value));
 		setInteractedTemperaturerange(true);
+		setInteractedTemperaturerange(event.target.value !== "0");
 	};
 	const handleGrowthChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setValueGrowth(Number.parseInt(event.target.value));
 		setInteractedGrowth(true);
+		setInteractedGrowth(event.target.value !== "0");
 	};
 	const handlePruningChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setValuePruning(Number.parseInt(event.target.value));
 		setInteractedPruning(true);
+		setInteractedPruning(event.target.value !== "0");
 	};
 	const handleDifficultyChange = (
 		event: React.ChangeEvent<HTMLInputElement>,
 	) => {
 		setValueDifficulty(Number.parseInt(event.target.value));
 		setInteractedDifficulty(true);
+		setInteractedDifficulty(event.target.value !== "0");
 	};
 
 	const resetFilters = () => {
-		setValueToleredlight(1);
-		setValueWatering(1);
-		setValueTemperaturerange(1);
-		setValueGrowth(1);
-		setValuePruning(1);
-		setValueDifficulty(1);
+		setValueToleredlight(0);
+		setValueWatering(0);
+		setValueTemperaturerange(0);
+		setValueGrowth(0);
+		setValuePruning(0);
+		setValueDifficulty(0);
 
 		setInteractedToleredlight(false);
 		setInteractedWatering(false);
@@ -122,7 +128,7 @@ const Filterssliders = ({
 		setInteractedDifficulty(false);
 	};
 
-	// Fonction de filtrage des plantes
+	// filtrage des plantes
 	const filterPlants = useCallback(() => {
 		return plants.filter((plant) => {
 			let lightMatch = true;
@@ -184,8 +190,8 @@ const Filterssliders = ({
 
 	useEffect(() => {
 		const filtered = filterPlants();
-		setFilteredPlants(filtered);
-	}, [filterPlants, setFilteredPlants]);
+		setDisplayedPlants(filtered);
+	}, [filterPlants, setDisplayedPlants]);
 
 	const getSliderClass = (interacted: boolean) => {
 		return interacted ? "slider active" : "slider inactive";
@@ -205,8 +211,7 @@ const Filterssliders = ({
 						className={getSliderClass(interactedToleredlight)}
 					/>
 					<p>
-						Choix sélectionné :{" "}
-						<strong>{choicesToleredlight[valueToleredlight]}</strong>
+						Selected :<strong>{choicesToleredlight[valueToleredlight]}</strong>
 					</p>
 				</div>
 
@@ -221,8 +226,7 @@ const Filterssliders = ({
 						className={getSliderClass(interactedWatering)}
 					/>
 					<p>
-						Choix sélectionné :{" "}
-						<strong>{choicesWatering[valueWatering]}</strong>
+						Selected : <strong>{choicesWatering[valueWatering]}</strong>
 					</p>
 				</div>
 
@@ -237,7 +241,7 @@ const Filterssliders = ({
 						className={getSliderClass(interactedTemperaturerange)}
 					/>
 					<p>
-						Choix sélectionné :{" "}
+						Selected :
 						<strong>{choicesTemperaturerange[valueTemperaturerange]}</strong>
 					</p>
 				</div>
@@ -253,7 +257,7 @@ const Filterssliders = ({
 						className={getSliderClass(interactedGrowth)}
 					/>
 					<p>
-						Choix sélectionné : <strong>{choicesGrowth[valueGrowth]}</strong>
+						Selected : <strong>{choicesGrowth[valueGrowth]}</strong>
 					</p>
 				</div>
 
@@ -268,7 +272,7 @@ const Filterssliders = ({
 						className={getSliderClass(interactedPruning)}
 					/>
 					<p>
-						Choix sélectionné : <strong>{choicesPruning[valuePruning]}</strong>
+						Selected : <strong>{choicesPruning[valuePruning]}</strong>
 					</p>
 				</div>
 
@@ -283,8 +287,7 @@ const Filterssliders = ({
 						className={getSliderClass(interactedDifficulty)}
 					/>
 					<p>
-						Choix sélectionné :{" "}
-						<strong>{choicesDifficulty[valueDifficulty]}</strong>
+						Selected :<strong>{choicesDifficulty[valueDifficulty]}</strong>
 					</p>
 				</div>
 				<button type="button" onClick={resetFilters} className="reset-button">

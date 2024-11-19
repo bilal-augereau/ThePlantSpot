@@ -1,0 +1,9 @@
+.plant-htitles-desktop {
+	display: table-row;
+}
+
+@media (max-width: 768px) {
+	.plant-htitles-desktop {
+		display: none;
+	}
+}
