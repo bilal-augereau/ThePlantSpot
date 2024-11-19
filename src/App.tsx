@@ -1,9 +1,9 @@
 import "./App.css";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
+import PlantList from "./components/PlantList";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
-import PlantList from "./components/PlantList";
 
 function App() {
 	return (
