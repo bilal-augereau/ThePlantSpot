@@ -3,3 +3,20 @@
 	padding: 0;
 	text-align: center;
 }
+
+.app-container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.nav {
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	gap: 1rem;
+}
+
+.main-content {
+	flex: 1;
+}

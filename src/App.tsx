@@ -3,19 +3,14 @@ import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
+import PlantList from "./components/PlantList";
 
 function App() {
 	return (
 		<Router>
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					minHeight: "100vh",
-				}}
-			>
+			<div className="app-container">
 				<nav>
-					<ul>
+					<ul className="nav">
 						<li>
 							<Link to="/">Accueil</Link>
 						</li>
@@ -27,18 +22,11 @@ function App() {
 						</li>
 					</ul>
 				</nav>
-				<div style={{ flex: 1 }}>
+				<div className="main-content">
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/search" element={<Search />} />
-						<Route
-							path="/plants"
-							element={
-								<div>
-									<h1>Liste des Plantes</h1>
-								</div>
-							}
-						/>
+						<Route path="/plants" element={<PlantList />} />
 					</Routes>
 				</div>
 				<Footer />
