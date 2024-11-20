@@ -31,6 +31,7 @@ const Search = () => {
 	const [error, setError] = useState(null);
 	const [filteredPlants, setFilteredPlants] = useState<Plant[]>([]);
 	const [displayedPlants, setDisplayedPlants] = useState<Plant[]>([]);
+	const [showFilters, setShowFilters] = useState(false);
 
 	const handleSearch = (searchTerm: string) => {
 		const filtered = plants.filter((plant) =>
@@ -77,6 +78,7 @@ const Search = () => {
 				}));
 				setPlants(formattedData);
 				setFilteredPlants(formattedData);
+				setDisplayedPlants(formattedData);
 				setLoading(false);
 			})
 			.catch((err) => {
@@ -104,12 +106,18 @@ const Search = () => {
 
 	return (
 		<div className="search">
-			<SearchBar onSearch={handleSearch} />
+			<SearchBar
+				onSearch={handleSearch}
+				showFilters={showFilters}
+				setShowFilters={setShowFilters}
+			/>
 			<div>
-				<Filterssliders
-					plants={filteredPlants}
-					setDisplayedPlants={setDisplayedPlants}
-				/>
+				{showFilters && (
+					<Filterssliders
+						plants={filteredPlants}
+						setDisplayedPlants={setDisplayedPlants}
+					/>
+				)}
 			</div>
 			<div>
 				<div className="plant-card">

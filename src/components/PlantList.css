@@ -20,6 +20,14 @@ td {
 	height: auto;
 }
 
+.imgplant-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
 .imgplant-column,
 .details-column,
 .images-column {
@@ -54,10 +62,6 @@ td {
 
 .details-display {
 	display: none;
-}
-
-.main-display {
-	/* display: table; */
 }
 
 @media (max-width: 768px) {

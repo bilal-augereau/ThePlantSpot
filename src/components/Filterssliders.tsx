@@ -32,42 +32,42 @@ const Filterssliders = ({
 		useState<boolean>(false);
 
 	const choicesToleredlight = [
-		"Disabled", // Neutre
+		"", // Neutre
 		"Diffuse light ( Less than 5,300 lux / 500 fc)", // Facile
 		"Strong light ( 21,500 to 3,200 lux/2000 to 300 fc)", // Moyenne
 		"Full sun (+21,500 lux /+2000 fc )", // Difficile
 	];
 
 	const choicesWatering = [
-		"Disabled", // Neutre
+		"", // Neutre
 		"Change water regularly in the cup & Water when soil is half dry", // Facile
 		"Water when soil is half dry & Can dry between watering", // Moyenne
 		"Keep moist between watering & Must not dry between watering", // Difficile
 	];
 
 	const choicesTemperaturerange = [
-		"Disabled", // Neutre
+		"", // Neutre
 		"Warm (25°C and above)", // Facile
 		"Moderate (15-25°C)", // Moyenne
 		"Cold (Less than 15°C)", // Difficile
 	];
 
 	const choicesGrowth = [
-		"Disabled", // Neutre
+		"", // Neutre
 		"Slow", // Difficile
 		"Regular", // Moyenne
 		"Fast", // Facile
 	];
 
 	const choicesPruning = [
-		"Disabled", // Neutre
+		"", // Neutre
 		"Never", // Facile
 		"After blooming", // Moyenne
 		"If needed", // Difficile
 	];
 
 	const choicesDifficulty = [
-		"Disabled", // Neutre
+		"", // Neutre
 		"Facile", // Facile
 		"Moyenne", // Moyenne
 		"Difficile", // Difficile
@@ -210,7 +210,7 @@ const Filterssliders = ({
 						className={getSliderClass(interactedToleredlight)}
 					/>
 					<p>
-						Selected :<strong>{choicesToleredlight[valueToleredlight]}</strong>
+						<strong>{choicesToleredlight[valueToleredlight]}</strong>
 					</p>
 				</div>
 
@@ -225,7 +225,7 @@ const Filterssliders = ({
 						className={getSliderClass(interactedWatering)}
 					/>
 					<p>
-						Selected : <strong>{choicesWatering[valueWatering]}</strong>
+						<strong>{choicesWatering[valueWatering]}</strong>
 					</p>
 				</div>
 
@@ -240,7 +240,6 @@ const Filterssliders = ({
 						className={getSliderClass(interactedTemperaturerange)}
 					/>
 					<p>
-						Selected :
 						<strong>{choicesTemperaturerange[valueTemperaturerange]}</strong>
 					</p>
 				</div>
@@ -256,7 +255,7 @@ const Filterssliders = ({
 						className={getSliderClass(interactedGrowth)}
 					/>
 					<p>
-						Selected : <strong>{choicesGrowth[valueGrowth]}</strong>
+						<strong>{choicesGrowth[valueGrowth]}</strong>
 					</p>
 				</div>
 
@@ -271,7 +270,7 @@ const Filterssliders = ({
 						className={getSliderClass(interactedPruning)}
 					/>
 					<p>
-						Selected : <strong>{choicesPruning[valuePruning]}</strong>
+						<strong>{choicesPruning[valuePruning]}</strong>
 					</p>
 				</div>
 
@@ -286,7 +285,7 @@ const Filterssliders = ({
 						className={getSliderClass(interactedDifficulty)}
 					/>
 					<p>
-						Selected :<strong>{choicesDifficulty[valueDifficulty]}</strong>
+						<strong>{choicesDifficulty[valueDifficulty]}</strong>
 					</p>
 				</div>
 				<button type="button" onClick={resetFilters} className="reset-button">
