@@ -19,6 +19,7 @@ const Home = () => {
 				<h2>Quizz</h2>
 				<button
 					className="quizz-button"
+					type="button" // Ajout explicite du type
 					onClick={() => alert("Quizz page coming soon!")}
 				>
 					Let's GO!
