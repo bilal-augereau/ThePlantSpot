@@ -3,7 +3,7 @@ import Photo from "../img/illustrations/GreenIllustrated.png";
 const Home = () => {
 	return (
 		// biome-ignore lint/a11y/useHtmlLang: <explanation>
-		<html style={{ backgroundColor: "#94AB6F" }}>
+		<html>
 			<body>
 				<div className="upper-body">
 					<div className="Textes">
@@ -15,19 +15,10 @@ const Home = () => {
 					</div>
 					<img className="woman-ia" src={Photo} alt="green" />
 				</div>
-				<div className="lower-body" style={{}}>
-					<div style={{ display: "flex", flexDirection: "column" }}>
-						<h3
-							style={{
-								fontSize: "30px",
-								fontWeight: "bold",
-								paddingRight: "5rem",
-							}}
-						>
-							{" "}
-							Who we are
-						</h3>
-						<p style={{ width: "40ch" }}>
+				<div className="texte-quizz">
+					<div className="texte-column">
+						<h3 className="Title-we-are"> Who we are</h3>
+						<p className="blablabla">
 							The Plant Spot is a user-friendly online platform designed to help
 							plant enthusiasts of all levels find the ideal houseplants for
 							their homes, based on specific needs, preferences, and
@@ -38,34 +29,11 @@ const Home = () => {
 						</p>
 					</div>
 
-					<hr
-						style={{
-							height: "200px",
-							marginTop: "7rem",
-						}}
-					/>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							marginRight: "7.5rem",
-						}}
-					>
-						<h3 style={{ fontSize: "30px", fontWeight: "bold" }}>QUIZZ</h3>
+					<hr className="line-column" />
+					<div className="quizz-part">
+						<h3 className="QUIZZ">QUIZZ</h3>
+						<article className="card" />
 					</div>
-				</div>
-				<div style={{ backgroundColor: "#FBF6F1" }}>
-					<h3
-						style={{
-							display: "flex",
-							justifyContent: "left",
-							color: "#000000",
-							marginLeft: "3rem",
-							fontSize: "60px",
-						}}
-					>
-						Most Popular Plants !
-					</h3>
 				</div>
 			</body>
 		</html>

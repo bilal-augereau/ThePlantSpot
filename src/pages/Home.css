@@ -25,12 +25,53 @@ html {
 }
 
 .woman-ia {
+	margin-top: 6rem;
 	width: 400px;
 	height: 400px;
 }
 
-.lower-body {
+.texte-quizz {
 	display: flex;
+	justify-content: space-evenly;
 	padding: 2rem;
 	margin-top: 4rem;
+}
+
+.texte-column {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Title-we-are {
+	font-size: 3rem;
+	font-weight: bold;
+}
+
+.blablabla {
+	margin-top: 1.5rem;
+	font-size: 1rem;
+	width: 42ch;
+	font-weight: lighter;
+	text-align: left;
+}
+
+.quizz-part {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: center;
+}
+
+.line-column {
+	flex: 0 1 auto;
+	align-self: center;
+	width: 1px;
+	height: 200px;
+}
+
+.QUIZZ {
+	font-size: 3rem;
+	font-weight: bold;
 }
