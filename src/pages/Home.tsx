@@ -1,4 +1,4 @@
-import "src/App.cssq";
+import "src/App.css";
 
 const Home = () => {
 	return (

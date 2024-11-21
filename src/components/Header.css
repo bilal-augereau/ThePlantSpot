@@ -5,7 +5,8 @@ nav {
 	display: flex;
 	flex-direction: row;
 	height: 90px;
-	position: fixed;
+	z-index: 1000;
+	position: sticky;
 	top: 0%;
 	width: 90%;
 	z-index: 1000;
