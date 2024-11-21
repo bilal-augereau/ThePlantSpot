@@ -1,27 +1,27 @@
-.app {
+.otherInformations {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
 }
 
-.content {
+.exceptionalPlantVarieties {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-.content-reverse {
+.easyCare {
 	display: flex;
 	flex-direction: column;
 }
 
-.Photo1 {
+.indoorPlants {
 	height: 1600px;
 	width: 600px;
 	margin: 40px;
 	object-fit: none;
 	margin-top: 200px;
 }
-.Photo2 {
+.greenOasis {
 	height: 1600px;
 	width: 600px;
 	margin: 40px;
@@ -33,24 +33,22 @@
 	width: 55ch;
 }
 
-.titre2 {
+.exceptionalPlantVarieties h3 {
 	text-align: center;
 	font-weight: bolder;
 	font-size: 3rem;
 	margin-top: 300px;
+	margin-bottom: auto;
 }
-.titre1 {
+
+.easyCare h3 {
 	text-align: center;
 	font-weight: bolder;
 	font-size: 3rem;
-	margin-top: 100px;
+	margin-top: 150px;
+	margin-bottom: auto;
 }
-.paragraphe1 {
-	font-weight: lighter;
-	text-align: left;
-	font-size: 2rem;
-}
-.paragraphe2 {
+.text p  {
 	font-weight: lighter;
 	text-align: left;
 	font-size: 2rem;
