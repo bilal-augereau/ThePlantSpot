@@ -1,4 +1,4 @@
-import "src/App.css";
+import "../Home.css";
 
 const Home = () => {
 	return (
@@ -15,12 +15,16 @@ const Home = () => {
 				</p>
 			</div>
 
-			<div className="quizz-section">
-				<h2>Quizz</h2>
+			<div className="quiz-section">
+				<h2>Quiz</h2>
+				<p>
+					Let’s start by some few questions about who you are and which plants
+					could match with you?
+				</p>
 				<button
-					className="quizz-button"
-					type="button" // Ajout explicite du type
-					onClick={() => alert("Quizz page coming soon!")}
+					className="quiz-button"
+					type="button"
+					onClick={() => alert("Quiz page coming soon!")}
 				>
 					Let's GO!
 				</button>
