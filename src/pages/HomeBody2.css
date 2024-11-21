@@ -1,0 +1,61 @@
+.app {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.content-reverse {
+	display: flex;
+	flex-direction: column;
+}
+
+.Photo1 {
+	height: 1600px;
+	width: 600px;
+	margin: 40px;
+	object-fit: none;
+	margin-top: 200px;
+}
+.Photo2 {
+	height: 1600px;
+	width: 600px;
+	margin: 40px;
+	object-fit: none;
+	margin-top: 200px;
+}
+
+.text {
+	width: 55ch;
+}
+
+.titre2 {
+	text-align: center;
+	font-weight: bolder;
+	font-size: 3rem;
+	margin-top: 300px;
+}
+.titre1 {
+	text-align: center;
+	font-weight: bolder;
+	font-size: 3rem;
+	margin-top: 100px;
+}
+.paragraphe1 {
+	font-weight: lighter;
+	text-align: left;
+	font-size: 2rem;
+}
+.paragraphe2 {
+	font-weight: lighter;
+	text-align: left;
+	font-size: 2rem;
+}
+
+body {
+	background-color: #94ab6f;
+}
