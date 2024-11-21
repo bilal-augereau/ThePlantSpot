@@ -192,94 +192,168 @@ const getTemperatureImage = (minTemp: number, maxTemp: number) => {
 	return null;
 };
 
-const PlantList = ({ plant }) => {
+const PlantList = ({ plant, index }) => {
 	const averageDifficulty = calculateAverageDifficulty(plant);
 	return (
-		<tr key={plant.id}>
-			<td>
+		<>
+			<tr
+				className={`main-display ${index % 2 === 0 ? "even-background" : "odd-background"}`}
+				key={plant.id}
+			>
+				<td className="imgplant-column">
+					<div className="imgplant-container">
+						<img
+							className="imgplant"
+							src={plant.Img}
+							alt={plant.Family}
+							width="100"
+						/>
+					</div>
+				</td>
+				<td className="details-column">
+					<p className="commonname">{plant["Common name"]}</p>
+					<p className="plantfamily">{plant.Family}</p>
+					<p className="latinname">{plant["Latin name"]}</p>
+				</td>
+
+				{/* Groupes d'images */}
+				<td className="images-column">
+					<div className="image-group">
+						{getLightImage(plant["Light tolered"])?.map((image, index) => (
+							<img
+								key={`Light tolered ${plant.id}-${index}`}
+								src={image}
+								alt={plant["Light tolered"]}
+								title={plant["Light tolered"]}
+								className="colpic"
+							/>
+						))}
+					</div>
+				</td>
+				<td className="images-column">
+					<div className="image-group">
+						{getDropImage(plant.Watering)?.map((image, index) => (
+							<img
+								key={`Watering ${plant.id}-${index}`}
+								src={image}
+								alt={plant.Watering}
+								title={`${plant.Watering}`}
+								className="colpic"
+							/>
+						))}
+					</div>
+				</td>
+				<td className="images-column">
+					<div className="image-group">
+						{getTemperatureImage(
+							plant["Temperature min"].C,
+							plant["Temperature max"].C,
+						)?.map((image, index) => (
+							<img
+								key={`Temperature ${plant.id}-${index}`}
+								src={image}
+								alt="Temperature"
+								title={`${plant.Watering}`}
+								className="colpic"
+								width="50"
+							/>
+						))}
+					</div>
+				</td>
+				<td className="images-column">
+					<div className="image-group">
+						{getGrowthImage(plant.Growth)?.map((image, index) => (
+							<img
+								key={`Growth ${plant.id}-${index}`}
+								src={image}
+								alt={plant.Growth}
+								title={`${plant.Growth}`}
+								className="colpic"
+							/>
+						))}
+					</div>
+				</td>
+				<td className="images-column">
+					<div className="image-group">
+						{getPruningImage(plant.Pruning)?.map((image, index) => (
+							<img
+								key={`Pruning ${plant.id}-${index}`}
+								src={image}
+								alt={plant.Pruning}
+								title={`${plant.Pruning}`}
+								className="colpic"
+							/>
+						))}
+					</div>
+				</td>
+				<td className="images-column">
+					<div className="image-group">
+						{getDifficultyImage(averageDifficulty)?.map((image, index) => (
+							<img
+								key={`Difficulty ${plant.id}-${index}`}
+								src={image}
+								alt="Difficulty"
+								title={`${averageDifficulty}`}
+								className="colpic"
+							/>
+						))}
+					</div>
+				</td>
+			</tr>
+
+			{/*petites résolutions */}
+			<div className="details-display">
 				<img
 					className="imgplant"
 					src={plant.Img}
 					alt={plant.Family}
 					width="100"
 				/>
-			</td>
-			<td>
-				<p className="commonname">{plant["Common name"]}</p>
-				<p className="plantfamily">{plant.Family}</p>
-				<p className="latinname">{plant["Latin name"]}</p>
-			</td>
-
-			<td>
-				{getLightImage(plant["Light tolered"])?.map((image, index) => (
-					<img
-						key={`Light tolered ${plant.id}-${index}`}
-						src={image}
-						alt={plant["Light tolered"]}
-						width="35"
-						title={plant["Light tolered"]}
-					/>
-				))}
-			</td>
-			<td>
-				{getDropImage(plant.Watering)?.map((image, index) => (
-					<img
-						key={`Watering ${plant.id}-${index}`}
-						src={image}
-						alt={plant.Watering}
-						width="35"
-						title={`${plant.Watering}`}
-					/>
-				))}
-			</td>
-			<td>
-				{getTemperatureImage(
-					plant["Temperature min"].C,
-					plant["Temperature max"].C,
-				)?.map((image, index) => (
-					<img
-						key={`Temperature ${plant.id}-${index}`}
-						src={image}
-						alt="Temperature"
-						width="35"
-						title={`${plant.Watering}`}
-					/>
-				))}
-			</td>
-			<td>
-				{getGrowthImage(plant.Growth)?.map((image, index) => (
-					<img
-						key={`Growth ${plant.id}-${index}`}
-						src={image}
-						alt={plant.Growth}
-						width="35"
-						title={`${plant.Growth}`}
-					/>
-				))}
-			</td>
-			<td>
-				{getPruningImage(plant.Pruning)?.map((image, index) => (
-					<img
-						key={`Pruning ${plant.id}-${index}`}
-						src={image}
-						alt={plant.Pruning}
-						width="35"
-						title={`${plant.Pruning}`}
-					/>
-				))}
-			</td>
-
-			<td>
-				{getDifficultyImage(averageDifficulty)?.map((image, index) => (
-					<img
-						key={`Difficulty ${plant.id}-${index}`}
-						src={image}
-						alt="Difficulty"
-						width="35"
-					/>
-				))}
-			</td>
-		</tr>
+				<div className="card-details">
+					<p className="commonname">{plant["Common name"]}</p>
+					<p className="plantfamily">{plant.Family}</p>
+					<p className="latinname">{plant["Latin name"]}</p>
+					<div className="imagegroup">
+						<img
+							src="src/img/picto/sun.png"
+							alt={plant["Light tolered"]}
+							title={plant["Light tolered"]}
+							className="colpic"
+						/>
+						<img
+							src="src/img/picto/drop.png"
+							alt={plant.Watering}
+							title={`${plant.Watering}`}
+							className="colpic"
+						/>
+						<img
+							src="src/img/picto/thermometer.png"
+							alt={`${plant["Temperature min"].C} & ${plant["Temperature max"].C}°C`}
+							title={`${plant["Temperature min"].C} & ${plant["Temperature max"].C}°C`}
+							className="colpic"
+						/>
+						<img
+							src="src/img/picto/hibiscus.png"
+							alt={plant.Growth}
+							title={`${plant.Growth}`}
+							className="colpic"
+						/>
+						<img
+							src="src/img/picto/pruning-shears.png"
+							alt={plant.Pruning}
+							title={`${plant.Pruning}`}
+							className="colpic"
+						/>
+						<img
+							src="src/img/picto/difficulties.png"
+							alt="Difficulty"
+							title={`${averageDifficulty}`}
+							className="colpic"
+						/>
+					</div>
+				</div>
+			</div>
+		</>
 	);
 };
 export {

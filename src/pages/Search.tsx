@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import "../components/PlantList.css";
+import CircularProgress from "@mui/material/CircularProgress";
+import Stack from "@mui/material/Stack";
 import Filterssliders from "../components/Filterssliders.tsx";
 import PlantList from "../components/PlantList.tsx";
 import SearchBar from "../components/SearchBar.tsx";
 import "../components/SearchBar.css";
+import "./Search.css";
 
 export type Plant = {
 	id: number;
+	index: number;
 	Family: string;
 	"Light tolered": string;
 	Watering: string;
@@ -26,12 +30,15 @@ const Search = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const [filteredPlants, setFilteredPlants] = useState<Plant[]>([]);
+	const [displayedPlants, setDisplayedPlants] = useState<Plant[]>([]);
+	const [showFilters, setShowFilters] = useState(false);
 
 	const handleSearch = (searchTerm: string) => {
 		const filtered = plants.filter((plant) =>
 			plant["Common name"][0]?.toLowerCase().includes(searchTerm.toLowerCase()),
 		);
 		setFilteredPlants(filtered);
+		setDisplayedPlants(filtered);
 	};
 
 	useEffect(() => {
@@ -72,6 +79,7 @@ const Search = () => {
 				}));
 				setPlants(formattedData);
 				setFilteredPlants(formattedData);
+				setDisplayedPlants(formattedData);
 				setLoading(false);
 			})
 			.catch((err) => {
@@ -80,23 +88,44 @@ const Search = () => {
 			});
 	}, []);
 
-	if (loading) return <div>Chargement...</div>;
+	if (loading)
+		return (
+			<Stack
+				sx={{
+					color: "grey.500",
+					height: "100vh",
+					justifyContent: "center",
+					alignItems: "center",
+				}}
+				spacing={2}
+				direction="row"
+			>
+				<CircularProgress color="success" />
+			</Stack>
+		);
 	if (error) return <div>Erreur: {error}</div>;
 
 	return (
-		<>
-			<h1>Page de recherche</h1>
-			<SearchBar onSearch={handleSearch} />
+		<div className="search">
+			<SearchBar
+				onSearch={handleSearch}
+				showFilters={showFilters}
+				setShowFilters={setShowFilters}
+			/>
 			<div>
-				<Filterssliders plants={plants} setFilteredPlants={setFilteredPlants} />
+				{showFilters && (
+					<Filterssliders
+						plants={filteredPlants}
+						setDisplayedPlants={setDisplayedPlants}
+					/>
+				)}
 			</div>
 			<div>
-				<h1>Liste des Plantes</h1>
 				<div className="plant-card">
 					<table>
 						<thead>
-							<tr>
-								<th>IMG</th>
+							<tr className="plant-htitles-desktop">
+								<th>Plants</th>
 								<th>Common Name / Family / Latin Name</th>
 								<th>Light tolered</th>
 								<th>Watering</th>
@@ -107,14 +136,14 @@ const Search = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{filteredPlants.map((plant) => (
-								<PlantList key={plant.id} plant={plant} />
+							{displayedPlants.map((plant, index) => (
+								<PlantList key={plant.id} plant={plant} index={index} />
 							))}
 						</tbody>
 					</table>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
