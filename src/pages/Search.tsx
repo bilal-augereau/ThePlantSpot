@@ -38,6 +38,7 @@ const Search = () => {
 			plant["Common name"][0]?.toLowerCase().includes(searchTerm.toLowerCase()),
 		);
 		setFilteredPlants(filtered);
+		setDisplayedPlants(filtered);
 	};
 
 	useEffect(() => {
