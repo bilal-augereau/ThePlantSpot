@@ -21,10 +21,10 @@ const Header = () => {
 					{" "}
 					<Link to="/"> Home </Link>
 				</li>{" "}
-				<li className="contact">
-					<Link to="/Search">Contact </Link>{" "}
-				</li>{" "}
-				<li className="catalogue">Catalogue</li>
+				<li className="contact"> Contact </li>{" "}
+				<li className="catalogue">
+					<Link to="/Search">Catalogue </Link>
+				</li>
 			</ul>
 		</nav>
 	);
