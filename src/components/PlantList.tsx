@@ -1,5 +1,5 @@
 import "./PlantList.css";
-import PlantCard from "./plantcard.tsx";
+import { useState } from "react";
 import difficultiesImg from "../img/picto/difficulties.png";
 import difficultiesBWImg from "../img/picto/difficultiesBW.png";
 import dropImg from "../img/picto/drop.png";
@@ -13,7 +13,6 @@ import sunBWImg from "../img/picto/sunBW.png";
 import thermometerImg from "../img/picto/thermometer.png";
 import thermometerBWImg from "../img/picto/thermometerBW.png";
 import type { Plant } from "../pages/Search.tsx";
-import { useState } from "react";
 
 const getLightDifficulty = (lightType: string): number => {
 	switch (lightType) {
