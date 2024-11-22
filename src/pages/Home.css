@@ -29,3 +29,50 @@ html {
 	width: 400px;
 	height: 400px;
 }
+
+.other-informations {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.exceptional-plant-varieties {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.easy-care {
+	display: flex;
+	flex-direction: column;
+}
+.green-oasis-img {
+	height: 1600px;
+	width: 600px;
+	margin: 40px;
+	object-fit: none;
+	margin-top: 200px;
+}
+.indoor-plants-img {
+	height: 1600px;
+	width: 600px;
+	margin: 40px;
+	object-fit: none;
+	margin-bottom: 200px;
+}
+.other-informations h3 {
+	text-align: center;
+	font-weight: bolder;
+	font-size: 3rem;
+	margin-top: 150px;
+	margin-bottom: 100px;
+}
+.text {
+	width: 55ch;
+	text-align: center;
+}
+.text p {
+	font-weight: lighter;
+	text-align: left;
+	font-size: 2rem;
+	justify-content: center;
+}
