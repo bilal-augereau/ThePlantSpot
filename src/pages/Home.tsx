@@ -6,11 +6,10 @@ import IndoorPlantsPicture from "../img/photo/IndoorPlantsPicture.jpeg";
 
 const Home = () => {
 	return (
-		// biome-ignore lint/a11y/useHtmlLang: <explanation>
-		<html>
+		<html lang="en">
 			<body>
 				<div className="upper-body">
-					<div className="Textes">
+					<div className="textes">
 						<h2 className="green-path"> The green path </h2>
 						<h3 className="find-spot">
 							<br />
