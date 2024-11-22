@@ -17,15 +17,11 @@ const Home = () => {
 						life, style, and serenity, all while matching your lifestyle. 🌿
 					</p>
 				</div>
-				<img className="greenOasis" src={GreenOasisPicture} alt="Green oasis" />
+				<img className="greenOasis-img" src={GreenOasisPicture} alt="Green oasis" />
 			</div>
 
 			<div className="easyCare">
-				<img
-					className="indoorPlants"
-					src={IndoorPlantsPicture}
-					alt="Indoor plants"
-				/>
+				<img className="indoorPlants-img" src={IndoorPlantsPicture} alt="Indoor plants"/>
 				<div className="text">
 					<h3>Easy Care</h3>
 					<p>
