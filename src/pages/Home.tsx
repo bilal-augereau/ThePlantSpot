@@ -4,8 +4,8 @@ import IndoorPlantsPicture from "../img/photo/IndoorPlantsPicture.jpeg";
 
 const Home = () => {
 	return (
-		<div className="otherInformations">
-			<div className="exceptionalPlantVarieties">
+		<div className="other-informations">
+			<div className="exceptional-plant-varieties">
 				<div className="text">
 					<h3>Exceptional Plant Varieties</h3>
 					<p>
@@ -18,15 +18,15 @@ const Home = () => {
 					</p>
 				</div>
 				<img
-					className="greenOasis-img"
+					className="green-oasis-img"
 					src={GreenOasisPicture}
 					alt="Green oasis"
 				/>
 			</div>
 
-			<div className="easyCare">
+			<div className="easy-care">
 				<img
-					className="indoorPlants-img"
+					className="indoor-plants-img"
 					src={IndoorPlantsPicture}
 					alt="Indoor plants"
 				/>
