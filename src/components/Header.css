@@ -8,7 +8,7 @@ nav {
 	position: sticky;
 	top: 0%;
 	align-items: center;
-	transition: background-color 0.3s;
+	transition: background-color 1.5s;
 	gap: 2rem;
 }
 
