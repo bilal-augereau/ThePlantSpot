@@ -6,7 +6,6 @@ import IndoorPlantsPicture from "../img/photo/IndoorPlantsPicture.jpeg";
 const Home = () => {
 	return (
 		<>
-			<h2> site</h2>
 			<Quiz />
 
 			<div className="other-informations">

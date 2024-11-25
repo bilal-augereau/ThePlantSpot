@@ -214,7 +214,7 @@ const PlantList = ({ plant, index }) => {
 					{selectedPlant && (
 						<div>
 							<img
-								className="imgplant"
+								className="imgplantsized"
 								src={plant.Img}
 								alt={plant.Family}
 								width="200"
@@ -238,12 +238,10 @@ const PlantList = ({ plant, index }) => {
 								}
 							}}
 						>
-							<img
-								className="imgplant"
-								src={plant.Img}
-								alt={plant.Family}
-								width="100"
-							/>
+							<img className="imgplant" src={plant.Img} alt={plant.Family} />
+							<div className="imgoverlay">
+								<div className="imgtext">View more</div>
+							</div>
 						</div>
 					)}
 				</td>
@@ -266,7 +264,7 @@ const PlantList = ({ plant, index }) => {
 							/>
 						))}
 						{selectedPlant && (
-							<div>
+							<div className="picdetails">
 								<h2>
 									Light Tolerance: <br />
 								</h2>
@@ -287,7 +285,7 @@ const PlantList = ({ plant, index }) => {
 							/>
 						))}
 						{selectedPlant && (
-							<div>
+							<div className="picdetails">
 								<h2>
 									{" "}
 									Watering: <br />
@@ -313,7 +311,7 @@ const PlantList = ({ plant, index }) => {
 							/>
 						))}
 						{selectedPlant && (
-							<div>
+							<div className="picdetails">
 								<h2>
 									Temperature range: <br />
 								</h2>
@@ -336,7 +334,7 @@ const PlantList = ({ plant, index }) => {
 							/>
 						))}
 						{selectedPlant && (
-							<div>
+							<div className="picdetails">
 								<h2>
 									Growth: <br />
 								</h2>
@@ -357,7 +355,7 @@ const PlantList = ({ plant, index }) => {
 							/>
 						))}
 						{selectedPlant && (
-							<div>
+							<div className="picdetails">
 								<h2>
 									Pruning: <br />
 								</h2>
@@ -378,7 +376,7 @@ const PlantList = ({ plant, index }) => {
 							/>
 						))}
 						{selectedPlant && (
-							<div>
+							<div className="picdetails">
 								<h2>
 									Difficulty: <br />
 								</h2>
