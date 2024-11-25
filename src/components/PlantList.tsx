@@ -1,4 +1,5 @@
 import "./PlantList.css";
+import { useState } from "react";
 import difficultiesImg from "../img/picto/difficulties.png";
 import difficultiesBWImg from "../img/picto/difficultiesBW.png";
 import dropImg from "../img/picto/drop.png";
@@ -194,6 +195,15 @@ const getTemperatureImage = (minTemp: number, maxTemp: number) => {
 
 const PlantList = ({ plant, index }) => {
 	const averageDifficulty = calculateAverageDifficulty(plant);
+	const [selectedPlant, setSelectedPlant] = useState<Plant | null>(null);
+
+	const handlePlantClick = (plant: Plant) => {
+		setSelectedPlant(plant);
+	};
+
+	const handleCloseCard = () => {
+		setSelectedPlant(null);
+	};
 	return (
 		<>
 			<tr
@@ -201,14 +211,39 @@ const PlantList = ({ plant, index }) => {
 				key={plant.id}
 			>
 				<td className="imgplant-column">
-					<div className="imgplant-container">
-						<img
-							className="imgplant"
-							src={plant.Img}
-							alt={plant.Family}
-							width="100"
-						/>
-					</div>
+					{selectedPlant && (
+						<div>
+							<img
+								className="imgplantsized"
+								src={plant.Img}
+								alt={plant.Family}
+								width="200"
+							/>
+							<button
+								className="close-button"
+								type="button"
+								onClick={handleCloseCard}
+							>
+								Close
+							</button>
+						</div>
+					)}
+					{!selectedPlant && (
+						<div
+							className="imgplant-container"
+							onClick={() => handlePlantClick(plant)}
+							onKeyDown={(e) => {
+								if (e.key === "Enter" || e.key === " ") {
+									handlePlantClick(plant);
+								}
+							}}
+						>
+							<img className="imgplant" src={plant.Img} alt={plant.Family} />
+							<div className="imgoverlay">
+								<div className="imgtext">View more</div>
+							</div>
+						</div>
+					)}
 				</td>
 				<td className="details-column">
 					<p className="commonname">{plant["Common name"]}</p>
@@ -228,6 +263,14 @@ const PlantList = ({ plant, index }) => {
 								className="colpic"
 							/>
 						))}
+						{selectedPlant && (
+							<div className="picdetails">
+								<h2>
+									Light Tolerance: <br />
+								</h2>
+								<p className="descpic">{plant["Light tolered"]}</p>
+							</div>
+						)}
 					</div>
 				</td>
 				<td className="images-column">
@@ -241,6 +284,15 @@ const PlantList = ({ plant, index }) => {
 								className="colpic"
 							/>
 						))}
+						{selectedPlant && (
+							<div className="picdetails">
+								<h2>
+									{" "}
+									Watering: <br />
+								</h2>
+								<p className="descpic">{plant.Watering}</p>
+							</div>
+						)}
 					</div>
 				</td>
 				<td className="images-column">
@@ -258,6 +310,16 @@ const PlantList = ({ plant, index }) => {
 								width="50"
 							/>
 						))}
+						{selectedPlant && (
+							<div className="picdetails">
+								<h2>
+									Temperature range: <br />
+								</h2>
+								<p className="descpic">
+									{plant["Temperature min"].C}-{plant["Temperature max"].C}°C
+								</p>
+							</div>
+						)}
 					</div>
 				</td>
 				<td className="images-column">
@@ -271,6 +333,14 @@ const PlantList = ({ plant, index }) => {
 								className="colpic"
 							/>
 						))}
+						{selectedPlant && (
+							<div className="picdetails">
+								<h2>
+									Growth: <br />
+								</h2>
+								<p className="descpic">{plant.Growth}</p>
+							</div>
+						)}
 					</div>
 				</td>
 				<td className="images-column">
@@ -284,6 +354,14 @@ const PlantList = ({ plant, index }) => {
 								className="colpic"
 							/>
 						))}
+						{selectedPlant && (
+							<div className="picdetails">
+								<h2>
+									Pruning: <br />
+								</h2>
+								<p className="descpic">{plant.Pruning}</p>
+							</div>
+						)}
 					</div>
 				</td>
 				<td className="images-column">
@@ -297,6 +375,14 @@ const PlantList = ({ plant, index }) => {
 								className="colpic"
 							/>
 						))}
+						{selectedPlant && (
+							<div className="picdetails">
+								<h2>
+									Difficulty: <br />
+								</h2>
+								<p className="descpic">{averageDifficulty}</p>
+							</div>
+						)}
 					</div>
 				</td>
 			</tr>

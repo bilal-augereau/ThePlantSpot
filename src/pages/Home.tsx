@@ -1,14 +1,26 @@
 import "./Home.css";
 import Quiz from "../components/Quiz";
+import PhotoWoman from "../img/illustrations/GreenIllustrated.png";
 import GreenOasisPicture from "../img/photo/GreenOasisPicture.jpeg";
 import IndoorPlantsPicture from "../img/photo/IndoorPlantsPicture.jpeg";
 
 const Home = () => {
 	return (
 		<>
-			<h2> site</h2>
-			<Quiz />
-
+			<div className="upper-body">
+				<div className="textes">
+					<h2 className="green-path"> The green path </h2>
+					<h3 className="find-spot">
+						<br />
+						Where Every Plant Find Its Spot
+					</h3>
+				</div>
+				<img className="woman-ia" src={PhotoWoman} alt="green" />
+			</div>
+			<>
+				<h2> site</h2>
+				<Quiz />
+			</>
 			<div className="other-informations">
 				<div className="exceptional-plant-varieties">
 					<div className="text">
