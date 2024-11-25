@@ -6,7 +6,7 @@ import IndoorPlantsPicture from "../img/photo/IndoorPlantsPicture.jpeg";
 
 const Home = () => {
 	return (
-		<body>
+		<>
 			<div className="upper-body">
 				<div className="textes">
 					<h2 className="green-path"> The green path </h2>
@@ -60,7 +60,9 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
-		</body>
+
+			<div className="footer-line" />
+		</>
 	);
 };
 
