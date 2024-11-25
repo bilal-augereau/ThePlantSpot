@@ -1,3 +1,37 @@
+body {
+	background-color: #94ab6f;
+}
+
+.upper-body {
+	display: flex;
+	justify-content: space-around;
+	padding: 2rem;
+	align-items: center;
+}
+
+.textes {
+	display: flex;
+	justify-content: left;
+	color: #ffffff;
+}
+
+.green-path {
+	margin-left: 2rem;
+	font-size: 1.5rem;
+	color: #ffffff;
+}
+
+.find-spot {
+	font-size: 5rem;
+	width: 8ch;
+}
+
+.woman-ia {
+	margin-top: 6rem;
+	width: 400px;
+	height: 400px;
+}
+
 .other-informations {
 	display: flex;
 	flex-direction: row;
@@ -37,14 +71,12 @@
 .text {
 	width: 55ch;
 	text-align: center;
+	color: #ffffff;
 }
 .text p {
+	color: #ffffff;
 	font-weight: lighter;
 	text-align: left;
 	font-size: 2rem;
 	justify-content: center;
-}
-
-body {
-	background-color: #94ab6f;
 }
