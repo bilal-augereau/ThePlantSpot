@@ -45,7 +45,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 420px;
+	width: 380px;
 	height: 1400px;
 	margin: 10px;
 	padding: auto;
@@ -101,16 +101,19 @@ body {
 		width: 80%;
 		margin: 20px auto;
 	}
-
+	.green-oasis-img,
+	.indoor-plants-img {
+		width: auto;
+		height: auto;
+		object-fit: cover;
+	}
 	.other-informations h3 {
 		font-size: 1.8rem;
+		text-align: center;
 	}
 
 	.text p {
-		font-size: 1.1rem;
+		font-size: 1.3rem;
 		text-align: center;
-	}
-	.green-oasis-img {
-		margin-bottom: 50px;
 	}
 }
