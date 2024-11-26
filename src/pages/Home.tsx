@@ -1,4 +1,5 @@
 import "../Home.css";
+import Quiz from "../components/Quiz";
 
 const Home = () => {
 	return (
@@ -14,21 +15,8 @@ const Home = () => {
 					recommendations to ensure your plants thrive in your unique space.
 				</p>
 			</div>
-
-			<div className="quiz-section">
-				<h2>Quiz</h2>
-				<p>
-					Let’s start by some few questions about who you are and which plants
-					could match with you?
-				</p>
-				<button
-					className="quiz-button"
-					type="button"
-					onClick={() => alert("Quiz page coming soon!")}
-				>
-					Let's GO!
-				</button>
-			</div>
+			<h2>Quiz</h2>
+			<Quiz />
 		</div>
 	);
 };

@@ -4,7 +4,7 @@
 	font-family: "ABeeZee", sans-serif;
 	background-color: #94ab6f;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: flex-start;
 	gap: 20px;
 	padding: 60px;
@@ -15,63 +15,23 @@
 .home-container::before {
 	content: "";
 	position: absolute;
-	top: 50%;
+	top: 10%;
 	left: 50%;
 	width: 2px;
-	height: 100px;
+	height: 250px;
 	background-color: white;
-	transform: translateX(-50%, -50%);
+	transform: translate(-50%);
 }
 
 .first-paragraph {
-	font-family: "ABeeZee", sans-serif;
-	flex: 1;
 	margin-right: 20px;
 	max-width: 400px;
 	text-align: justify;
-	padding-right: 500px;
+	font-size: 1.2em;
 }
 
 .first-paragraph h1 {
 	margin-left: 50px;
 	text-align: left;
-}
-
-.quiz-section {
-	background-color: #fbf6f1;
-	color: black;
-	border: 2px solid #624f25;
-	flex: 1;
-	padding: 30px;
-	border-radius: 10px;
-	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-	max-width: 350px;
-	height: 200px;
-	margin-top: 40px;
-	align-self: flex-start;
-	display: flex;
-	flex-direction: column;
-}
-
-.quiz-section h2 {
-	font-size: 2rem;
-	font-weight: bold;
-}
-
-.quiz-section p {
-	flex: 1;
-	text-align: justify;
-	font-size: large;
-}
-
-.quiz-button {
-	background-color: #624f25;
-	color: #fbf6f1;
-	padding: 20px 40px;
-	font-size: 1.5rem;
-	border-radius: 20px;
-	border: none;
-	cursor: pointer;
-	align-self: center;
-	margin-top: auto;
+	font-size: 2.5em;
 }
