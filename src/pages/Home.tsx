@@ -17,10 +17,9 @@ const Home = () => {
 				</div>
 				<img className="woman-ia" src={PhotoWoman} alt="green" />
 			</div>
-			<>
-				<h2> site</h2>
-				<Quiz />
-			</>
+
+			<Quiz />
+
 			<div className="other-informations">
 				<div className="exceptional-plant-varieties">
 					<div className="text">
