@@ -11,10 +11,10 @@ h2 {
 
 .quiz {
 	display: grid;
-	grid-template-rows: 1fr 2fr;
+	grid-template-rows: auto 2fr;
 	grid-gap: 10px;
-	width: 100rem;
-	height: 25rem;
+	width: 100%;
+	min-height: 25rem;
 	background-color: #fbf6f1;
 	border-radius: 45px;
 	color: black;
