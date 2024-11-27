@@ -27,6 +27,7 @@ body {
 .find-spot {
 	font-size: 5rem;
 	width: 8ch;
+	color: #ffffff;
 }
 
 .woman-ia {
@@ -82,7 +83,8 @@ body {
 .other-informations {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: center;
+	flex-wrap: wrap;
 	padding: 2rem;
 }
 
@@ -91,56 +93,42 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	gap: 30px;
 	width: 350px;
-	height: 1600px;
-}
-
-.exceptional-plant-varieties {
-	margin-left: 650px;
-}
-
-.easy-care {
-	margin-right: 650px;
+	height: 1400px;
+	margin: 10px;
+	padding: auto;
+	margin-bottom: 50px;
 }
 
 .green-oasis-img,
 .indoor-plants-img {
-	height: 100%;
 	width: 100%;
+	height: 100%;
 	object-fit: cover;
 }
 
 .other-informations h3 {
-	text-align: center;
+	text-align: left;
 	font-weight: bolder;
 	font-size: 2rem;
 	color: #ffffff;
-	margin: auto 0 10px;
-}
-
-.exceptional-plant-varieties h3 {
-	text-align: left;
-}
-.easy-care h3 {
-	text-align: left;
 }
 
 .text {
-	width: 100%;
 	text-align: center;
 	color: #ffffff;
+	height: auto;
+	width: 100%;
 }
 
 .text p {
+	width: 100%;
 	color: #ffffff;
 	font-weight: lighter;
 	text-align: left;
-	font-size: 25px;
-	width: 100%;
-}
-
-body {
-	background-color: #94ab6f;
+	font-size: 1.5rem;
+	line-height: 1.5;
 }
 
 .footer-line {
@@ -151,59 +139,30 @@ body {
 	border-radius: 2px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
 	.other-informations {
 		flex-direction: column;
 		align-items: center;
-		margin: 50px;
 	}
 
 	.exceptional-plant-varieties,
 	.easy-care {
-		margin: 0;
+		width: 80%;
+		margin: 20px auto;
+	}
+	.green-oasis-img,
+	.indoor-plants-img {
 		width: auto;
 		height: auto;
+		object-fit: cover;
+	}
+	.other-informations h3 {
+		font-size: 1.8rem;
+		text-align: center;
 	}
 
-	.green-oasis-img,
-	.indoor-plants-img {
-		height: 100%;
-		width: 100%;
-		margin: 50px 0;
-	}
-
-	.text {
-		width: 45ch;
-		font-size: 20px;
-		width: 100%;
-		height: 100%;
-	}
-}
-
-@media (max-width: 768px) {
-	.green-oasis-img,
-	.indoor-plants-img {
-		height: 80%;
-		width: 80%;
-	}
-
-	.text {
-		width: auto;
-		font-size: 18px;
-	}
-}
-
-@media (max-width: 480px) {
-	.green-oasis-img,
-	.indoor-plants-img {
-		height: 80%;
-		width: 80%;
-	}
-
-	.text {
-		width: auto;
-		padding: 10px;
-		text-align: left;
-		font-size: 16px;
+	.text p {
+		font-size: 1.3rem;
+		text-align: center;
 	}
 }
