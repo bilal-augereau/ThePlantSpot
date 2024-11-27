@@ -8,6 +8,8 @@ nav {
 	z-index: 1000;
 	position: sticky;
 	top: 0%;
+	width: 90%;
+	z-index: 1000;
 	align-items: center;
 	transition: all 1s ease;
 	gap: 2rem;
