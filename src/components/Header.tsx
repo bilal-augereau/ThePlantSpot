@@ -4,14 +4,14 @@ import logo from "../img/illustrations/Logo.png";
 import "./Header.css";
 
 const Header = () => {
-	const [navSwapColor, setNavSwapColor] = useState("#435823");
+	const [navClass, setNavClass] = useState("");
 
 	useEffect(() => {
 		const handleScroll = () => {
 			if (window.scrollY > 60) {
-				setNavSwapColor("#435823");
+				setNavClass("scrolled");
 			} else {
-				setNavSwapColor("#94ab6f");
+				setNavClass("");
 			}
 		};
 		window.addEventListener("scroll", handleScroll);
@@ -21,7 +21,7 @@ const Header = () => {
 	});
 
 	return (
-		<nav style={{ backgroundColor: navSwapColor }}>
+		<nav className={`nav ${navClass}`}>
 			<div className="column-logo">
 				<img src={logo} alt="logo" className="Logo" />
 
