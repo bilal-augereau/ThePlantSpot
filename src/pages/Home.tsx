@@ -1,4 +1,4 @@
-import "../Home.css";
+import "./Home.css";
 import "../components/Quiz.css";
 import Quiz from "../components/Quiz";
 import PhotoWoman from "../img/illustrations/GreenIllustrated.png";
