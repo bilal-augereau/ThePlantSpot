@@ -42,23 +42,10 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	align-items: flex-start;
+	align-items: center;
 	gap: 20px;
 	padding: 60px;
 	margin: 0 auto;
-	position: relative;
-	max-width: 1200px;
-}
-
-.home-container::before {
-	content: "";
-	position: absolute;
-	top: 10%;
-	left: 50%;
-	width: 2px;
-	height: 80%;
-	background-color: white;
-	transform: translateX(-50%);
 }
 
 .first-paragraph {
