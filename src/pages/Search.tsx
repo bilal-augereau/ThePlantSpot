@@ -19,7 +19,7 @@ export type Plant = {
 	Growth: string;
 	Pruning: string;
 	Difficulties: string;
-	C: number;
+	C: string;
 	Img: string;
 	"Common name": string;
 	"Latin name": string;
@@ -72,7 +72,7 @@ const Search = () => {
 					Growth: plant.Growth || "",
 					Pruning: plant.Pruning || "",
 					Difficulties: plant.Difficulties || "",
-					C: plant.C || 0,
+					C: plant.C || "",
 					Img: plant.Img || "",
 					"Common name": plant["Common name"] || "",
 					"Latin name": plant["Latin name"] || "",
