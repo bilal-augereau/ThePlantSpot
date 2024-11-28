@@ -62,7 +62,7 @@ body {
 }
 
 .first-paragraph p {
-	font-size: 30px;
+	font-size: 1.5rem;
 	font-weight: bold;
 	text-align: center;
 }
@@ -73,6 +73,7 @@ body {
 	justify-content: center;
 	flex-wrap: wrap;
 	padding: 2rem;
+	gap: 8rem;
 }
 
 .exceptional-plant-varieties,
