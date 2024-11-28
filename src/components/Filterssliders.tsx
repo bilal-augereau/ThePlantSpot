@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import PlantList, {
+import {
 	getLightDifficulty,
 	getWateringDifficulty,
 	getTemperatureDifficulty,
