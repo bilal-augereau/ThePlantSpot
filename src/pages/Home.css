@@ -42,7 +42,6 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	align-items: center;
 	gap: 20px;
 	padding: 60px;
 	margin: 0 auto;
@@ -53,18 +52,21 @@ body {
 	margin-right: 20px;
 	text-align: justify;
 	font-size: 1.2em;
+	font-weight: lighter;
 }
 
 .first-paragraph h1 {
-	margin-left: 126px;
+	margin-left: 180px;
 	text-align: left;
 	font-size: 2.5em;
+	margin-bottom: 4rem;
 }
 
 .first-paragraph p {
 	font-size: 1.5rem;
 	font-weight: bold;
-	text-align: center;
+	text-align: left;
+	font-weight: lighter;
 }
 
 .other-informations {
