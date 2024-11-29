@@ -145,10 +145,10 @@ const Filterssliders = ({
 				wateringMatch = getWateringDifficulty(plant.Watering) === valueWatering;
 			}
 			if (interactedTemperaturerange && valueTemperaturerange !== 0) {
-				tempMatch =
+			const tempMatch =
 					getTemperatureDifficulty(
-						plant["Temperature min"].C,
-						plant["Temperature max"].C,
+						plant["Temperature min"].value,
+						plant["Temperature max"].value,
 					) === valueTemperaturerange;
 			}
 			if (interactedGrowth && valueGrowth !== 0) {
