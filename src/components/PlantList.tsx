@@ -193,7 +193,12 @@ const getTemperatureImage = (minTemp: number, maxTemp: number) => {
 	return null;
 };
 
-const PlantList = ({ plant, index }) => {
+interface PlantListProps {
+	plant: Plant;
+	index: number;
+}
+
+const PlantList = ({ plant, index }: PlantListProps) => {
 	const averageDifficulty = calculateAverageDifficulty(plant);
 	const [selectedPlant, setSelectedPlant] = useState<Plant | null>(null);
 
