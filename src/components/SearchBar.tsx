@@ -5,7 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css"; // Importation des icôn
 export interface SearchBarProps {
 	onSearch: (searchTerm: string) => void;
 	showFilters: boolean;
-	setShowFilters: (show: boolean) => void;
+	setShowFilters: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const SearchBar = ({
