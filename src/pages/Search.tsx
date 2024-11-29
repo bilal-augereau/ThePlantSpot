@@ -14,8 +14,14 @@ export type Plant = {
 	Family: string;
 	"Light tolered": string;
 	Watering: string;
-	"Temperature max": number;
-	"Temperature min": number;
+"Temperature max": {
+		C: number;
+		F: number;
+	};
+	"Temperature min": {
+		C: number;
+		F: number;
+	};
 	Growth: string;
 	Pruning: string;
 	Difficulties: string;
