@@ -91,8 +91,8 @@ const calculateAverageDifficulty = (plant: Plant): number => {
 	const lightDifficulty = getLightDifficulty(plant["Light tolered"]);
 	const wateringDifficulty = getWateringDifficulty(plant.Watering);
 	const temperatureDifficulty = getTemperatureDifficulty(
-		plant["Temperature min"],
-		plant["Temperature max"],
+		plant["Temperature min"].C,
+		plant["Temperature max"].C,
 	);
 	const growthDifficulty = getGrowthDifficulty(plant.Growth);
 	const pruningDifficulty = getPruningDifficulty(plant.Pruning);
