@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import {
-	getLightDifficulty,
-	getWateringDifficulty,
-	getTemperatureDifficulty,
-	getGrowthDifficulty,
-	getPruningDifficulty,
 	calculateAverageDifficulty,
+	getGrowthDifficulty,
+	getLightDifficulty,
+	getPruningDifficulty,
+	getTemperatureDifficulty,
+	getWateringDifficulty,
 } from "./PlantList.tsx";
 import "./Filterssliders.css";
 import type { Plant } from "../pages/Search.tsx";
