@@ -147,8 +147,8 @@ const Filterssliders = ({
 			if (interactedTemperaturerange && valueTemperaturerange !== 0) {
 			const tempMatch =
 					getTemperatureDifficulty(
-						plant["Temperature min"].value,
-						plant["Temperature max"].value,
+						plant["Temperature min"].C,
+						plant["Temperature max"].C,
 					) === valueTemperaturerange;
 			}
 			if (interactedGrowth && valueGrowth !== 0) {
