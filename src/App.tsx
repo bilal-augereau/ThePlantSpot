@@ -2,9 +2,9 @@ import "./App.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { QuizProvider } from "./contexts/QuizContext";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
-import { QuizProvider } from "./contexts/QuizContext";
 
 function App() {
 	return (
