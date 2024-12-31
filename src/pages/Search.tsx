@@ -39,8 +39,11 @@ const Search = () => {
 	const [showFilters, setShowFilters] = useState(false);
 
 	const handleSearch = (searchTerm: string) => {
-		const filtered = plants.filter((plant) =>
-			plant["Common name"][0]?.toLowerCase().includes(searchTerm.toLowerCase()),
+		const filtered = plants.filter(
+			(plant) =>
+				plant["Common name"].toLowerCase().includes(searchTerm) ||
+				plant["Latin name"].toLowerCase().includes(searchTerm) ||
+				plant.Family.toLowerCase().includes(searchTerm),
 		);
 		setFilteredPlants(filtered);
 		setDisplayedPlants(filtered);
