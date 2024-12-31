@@ -8,8 +8,8 @@ import {
 	getWateringDifficulty,
 } from "./PlantList";
 import "./Filterssliders.css";
-import type { Plant } from "../pages/Search";
 import { useQuiz } from "../contexts/QuizContext";
+import type { Plant } from "../pages/Search";
 
 const Filterssliders = ({
 	plants,
