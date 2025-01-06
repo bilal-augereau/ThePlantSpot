@@ -54,7 +54,6 @@ const Filterssliders = ({
 
 	const choicesPruning = ["", "Never", "After blooming", "If needed"];
 
-	// Associer les réponses du quiz aux sliders
 	useEffect(() => {
 		if (answers.length > 0) {
 			setValueToleredlight(
@@ -111,7 +110,6 @@ const Filterssliders = ({
 		}
 	}, [answers]);
 
-	// Fonction de filtrage des plantes
 	const filterPlants = useCallback(() => {
 		return plants.filter((plant) => {
 			let lightMatch = true;
